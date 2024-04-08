@@ -1,0 +1,5 @@
+final todo
+-readme
+-update UML
+-clean up report, challenges (unable to add multiple items 2 cart, update customer's points after sale, add order to customer's orders array)
+-clean up debugging statements

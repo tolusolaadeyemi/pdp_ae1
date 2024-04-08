@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="home">
+    <h2>Welcome to our store.</h2>
+    <p>Employees login here <a href="{{ url_for('login') }}" class="login-btn">Login</a></p>
+</section>
+<h2>Available Items</h2>
+<table>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th></th>
+    </tr>
+    {% for item in items %}
+    <tr>
+      <td>{{ item.name }}</td>
+      <td>${{ item.price }}</td>
+      <td><img src="{{ url_for('static', filename='images/' + item.name + '.jpeg') }}" alt="{{ item.name }}" width="100" height="100"></td>
+      <td>
+        <form action="/add_to_cart" method="POST">
+            <input type="hidden" name="item_name" value="{{ item.name }}">
+            <input type="hidden" name="item_price" value="{{ item.price }}">
+            <input type="number" name="quantity" min="1" value="1" required>
+            <input type="submit" value="Add to Cart">
+        </form>
+    </td>
+    </tr>
+    {% endfor %}
+  </table>  
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>View Cart</h2>
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+    </tr>
+    {% for item in session['cart']['items'] %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>${{ item.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>${{ item.price * item.quantity }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="3">Total:</td>
+        <td>${{ total }}</td>
+    </tr>
+</table>
+
+<h2>Customer Information</h2>
+<form action="/make_purchase" method="POST">
+    <label for="customer_name">Name:</label>
+    <input type="text" id="customer_name" name="customer_name" required><br><br>
+    <input type="submit" value="Checkout">
+</form>
+{% endblock %}

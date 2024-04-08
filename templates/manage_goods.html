@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Add New Good</h2>
+    <form action="/add_good" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" required><br><br>
+        <input type="submit" value="Add Good">
+    </form>
+
+    <h2>Remove Existing Good</h2>
+    <form action="/remove_good" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" required><br><br>
+        <input type="submit" value="Remove Good">
+    </form>
+
+{% endblock %}

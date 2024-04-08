@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Welcome, {{ employee.name }}</h2>
+    <div class="action-buttons">
+        <a href="{{ url_for('add_good') }}" class="btn">Manage Goods</a>
+        <a href="{{ url_for('display_customers') }}" class="btn">View Customers</a>
+    </div>
+{% endblock %}
